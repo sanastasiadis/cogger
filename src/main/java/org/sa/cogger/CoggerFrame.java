@@ -15,8 +15,6 @@ import java.awt.event.WindowEvent;
 
 /**
  *
- * http://www.mathopenref.com/coordcirclealgorithm.html
- * http://www.mathopenref.com/chord.html
  * 
  * 
  * @author stavros
