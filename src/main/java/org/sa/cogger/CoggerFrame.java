@@ -38,15 +38,15 @@ public class CoggerFrame extends Frame {
         g.setColor(Color.red);
         
         int r = 200;
-        int teeth = 20;
-        int toothHeight = 10;
+        int teeth = 50;
+        int toothHeight = 5;
         
         setSize((int)r*2 + 50, (int)r*3 + 50);
         double x = getSize().width /2;
         double y = getSize().height /2;
         
         //Polygon p = pointy(x, y, r, teeth, toothHeight);
-        Polygon p = Cogger.trapezoid(x, y, teeth, toothHeight, 0.05);
+        Polygon p = Cogger.trapezoid(x, y, r, teeth, toothHeight, 0.05);
         
         g.drawPolygon(p);
     }

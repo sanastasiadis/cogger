@@ -67,8 +67,26 @@ public class Cogger {
         double f4 = plat/2;
         
         double r = (2 * Math.sin(f4/2) * toothHeight) / (2*Math.sin(f4/2) - 2*Math.sin(f2/2));
+        r = r * teeth/20;
         
+        return trapezoid(x, y, r, teeth, toothHeight, f1, f2, f3, f4);
+    }
+    
+    public static Polygon trapezoid(double x, double y, double r, int teeth, int toothHeight, double inclination) {
+        double plat = 2*Math.PI/teeth;
+        
+        double f1 = plat * inclination;
+        double f2 = plat/2 - 2*f1;
+        double f3 = f1;
+        double f4 = plat/2;
+        
+        return trapezoid(x, y, r, teeth, toothHeight, f1, f2, f3, f4);
+    }
+    
+    private static Polygon trapezoid(double x, double y, double r, int teeth, int toothHeight, double f1, double f2, double f3, double f4) {
         Polygon p = new Polygon();
+        
+        double plat = f1+f2+f3+f4;
         
         for (double theta = 0; theta < 2*Math.PI; theta+=plat) {
             double x2 = x + (r-toothHeight)*Math.cos(theta);
