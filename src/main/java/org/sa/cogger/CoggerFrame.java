@@ -35,20 +35,28 @@ public class CoggerFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
+        setSize(500, 500);
+        double x = 250;
+        double y = 250;
+        
         g.setColor(Color.red);
         
-        int r = 200;
-        int teeth = 50;
-        int toothHeight = 5;
+        //always declare the number of cogs
+        int cogs = 15;
         
-        setSize((int)r*2 + 50, (int)r*3 + 50);
-        double x = getSize().width /2;
-        double y = getSize().height /2;
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //declare the size of the cogwheel that you need, and the height of the cog will be computed
+        double r = 100;
+        Polygon p1 = Cogger.trapezoid(x, y, r, cogs, 0.03);
+        g.drawPolygon(p1);
+        //g.drawPolyline(p1.xpoints, p1.ypoints, p1.npoints);
         
-        //Polygon p = pointy(x, y, r, teeth, toothHeight);
-        Polygon p = Cogger.trapezoid(x, y, r, teeth, toothHeight, 0.05);
-        
-        g.drawPolygon(p);
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //declare the height of the cog that you need, and the size of the cogwheel will be computed
+        double cogHeight = 10;
+        Polygon p2 = Cogger.trapezoid(x, y, cogs, cogHeight, 0.03);
+        g.drawPolygon(p2);
+        //g.drawPolyline(p2.xpoints, p2.ypoints, p2.npoints);
     }
     
 }
